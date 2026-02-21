@@ -1,0 +1,11 @@
+# Development environment overrides
+storage:
+  bronze_path: "data/bronze"
+  silver_path: "data/silver"
+  gold_path:   "data/gold"
+
+spark:
+  master: "local[*]"
+
+logging:
+  level: DEBUG

@@ -1,3 +1,27 @@
+# ── Open Lakehouse ────────────────────────────────────────────────────────────
+# Data directories – track structure via .gitkeep, not contents
+data/bronze/*
+data/silver/*
+data/gold/*
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+!data/sample/.gitkeep
+
+# dbt compiled artefacts
+dbt/target/
+dbt/dbt_packages/
+
+# Terraform state and secrets
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!infrastructure/terraform/environments/*/terraform.tfvars
+
+# Jupyter checkpoints are already covered below
+
+# ── Python ────────────────────────────────────────────────────────────────────
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

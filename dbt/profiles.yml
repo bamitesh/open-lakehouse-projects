@@ -1,0 +1,15 @@
+open_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: session
+      schema: open_lakehouse_dev
+      threads: 4
+    prod:
+      type: spark
+      method: thrift
+      host: "{{ env_var('SPARK_THRIFT_HOST', 'localhost') }}"
+      port: 10000
+      schema: open_lakehouse
+      threads: 8
