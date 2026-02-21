@@ -1,0 +1,29 @@
+# Open Lakehouse – default configuration
+# Override with environment variables or environment-specific files.
+
+lakehouse:
+  project: open-lakehouse
+
+storage:
+  bronze_path: "data/bronze"
+  silver_path: "data/silver"
+  gold_path:   "data/gold"
+  format: delta
+
+spark:
+  app_name: OpenLakehouse
+  master: "local[*]"
+  config:
+    spark.sql.extensions: "io.delta.sql.DeltaSparkSessionExtension"
+    spark.sql.catalog.spark_catalog: "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+
+catalog:
+  name: spark_catalog
+  default_schema: lakehouse
+
+quality:
+  fail_on_error: true
+  report_path: "data/quality_reports"
+
+logging:
+  level: INFO

@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data landed by the ingestion layer (Bronze)."
+    tables:
+      - name: source_a
+        description: "Raw records from Source A."
+        columns:
+          - name: id
+            description: "Primary key."
+            tests:
+              - not_null
+              - unique
+
+models:
+  - name: raw_source_a
+    description: "Bronze table – raw Source A records."
+    columns:
+      - name: id
+        tests:
+          - not_null
+
+  - name: stg_source_a
+    description: "Silver table – deduplicated Source A records."
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_source_a
+    description: "Gold dimension table for Source A."
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique

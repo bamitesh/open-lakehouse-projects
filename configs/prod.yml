@@ -1,0 +1,15 @@
+# Production environment overrides
+storage:
+  bronze_path: "s3://open-lakehouse-prod-bronze"
+  silver_path: "s3://open-lakehouse-prod-silver"
+  gold_path:   "s3://open-lakehouse-prod-gold"
+
+spark:
+  master: "yarn"
+  config:
+    spark.executor.memory: "8g"
+    spark.executor.cores: "4"
+    spark.dynamicAllocation.enabled: "true"
+
+logging:
+  level: INFO
